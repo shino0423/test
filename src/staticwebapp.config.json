@@ -1,0 +1,24 @@
+{
+  "networking": {
+    "allowedIpRanges": [
+      "203.0.113.0/24",  // 許可するIPアドレスまたはCIDR範囲
+      "198.51.100.0/24"
+    ]
+  },
+  "routes": [
+    {
+      "route": "/*",
+      "allowedRoles": ["authenticated"]
+    }
+  ],
+  "auth": {
+    "roles": {
+      "authenticated": {
+        "allowedIpRanges": [
+          "153.240.184.9",  // 許可するIPアドレスまたはCIDR範囲
+          "198.51.100.0/24"
+        ]
+      }
+    }
+  }
+}
