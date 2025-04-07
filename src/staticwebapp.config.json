@@ -1,10 +1,15 @@
 {
   "networking": {
-    "allowedIpRanges": [
-      "203.0.113.0/24",  // 許可するIPアドレスまたはCIDR範囲
-      "198.51.100.0/24"
-    ]
+  "allowedIpRanges": ["AzureFrontDoor.Backend"]
+},
+  "forwardingGateway": {
+  "requiredHeaders": {
+    "X-Azure-FDID" : "d8097adb-26da-43d1-9fde-188d4aa29c05"
   },
+  "allowedForwardedHosts": [
+    "my-sitename.azurefd.net"
+  ]
+}
   "routes": [
     {
       "route": "/*",
@@ -12,13 +17,14 @@
     }
   ],
   "auth": {
-    "roles": {
-      "authenticated": {
-        "allowedIpRanges": [
-          "153.240.184.9",  // 許可するIPアドレスまたはCIDR範囲
-          "198.51.100.0/24"
-        ]
-      }
-    }
+    "roles": [
+        {
+            "route": "/members",
+            "allowedRoles": ["authenticated", "members"],
+            "headers": {
+                "Cache-Control": "no-store"
+            }
+        }
+    ]
   }
 }
