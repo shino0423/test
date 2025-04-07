@@ -7,7 +7,7 @@
     "X-Azure-FDID" : "d8097adb-26da-43d1-9fde-188d4aa29c05"
   },
   "allowedForwardedHosts": [
-    "my-sitename.azurefd.net"
+    "https://agreeable-hill-0edc7c400.6.azurestaticapps.net"
   ]
 }
   "routes": [
